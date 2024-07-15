@@ -1,0 +1,17 @@
+ML Pipeline without approval:
+
+zip=a							ArchiveFiles@2
+deploy							AzureRmWebAppDeployment@4
+
+---
+ML Pipeline without approval:
+
+zip=a							ArchiveFiles@2
+container (pipeline)=p					PublishBuildArtifacts@1
+wait for approval					ManualValidation@0
+
+download the zip file from pipeline to zip=a		DownloadBuildArtifacts@0
+Deploy							AzureWebApp@1
+
+---
+
